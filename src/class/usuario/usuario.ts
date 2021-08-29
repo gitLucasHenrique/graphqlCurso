@@ -8,7 +8,7 @@ class Usuario {
     perfil_id: number
     status: UsuarioStatus
 }
-//
+
 enum UsuarioStatus {
     ATIVO = 'ATIVO',
     INATIVO = 'INATIVO',
