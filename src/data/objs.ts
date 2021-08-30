@@ -1,30 +1,36 @@
-import { Usuario, UsuarioStatus } from "../class/usuario/usuario"
+import { User, UserStatus } from "../class/usuario/usuario"
 import Perfil from "../class/perfil/perfil"
 
-const usuarios: Usuario[] = [
+let id = 1;
+
+function proximoId() {
+    return id++
+}
+
+const usuarios: User[] = [
     {
-        id: 1,
+        id: proximoId(),
         nome: 'lucas',
         email: 'l@gmail.com',
         idade: 30,
         perfil_id: 1,
-        status: UsuarioStatus.ATIVO
+        status: UserStatus.ATIVO
     },
     {
-        id: 2,
+        id: proximoId(),
         nome: 'lucass',
         email: 'sls@gmail.com',
         idade: 33,
         perfil_id: 2,
-        status: UsuarioStatus.BLOQUEADO
+        status: UserStatus.BLOQUEADO
     },
     {
-        id: 3,
+        id: proximoId(),
         nome: 'lucasss',
         email: 'lss@gmail.com',
         idade: 34,
         perfil_id: 2,
-        status: UsuarioStatus.INATIVO
+        status: UserStatus.INATIVO
     },
 ]
 
@@ -39,4 +45,4 @@ const perfis: Perfil[] = [
     },
 ]
 
-export { perfis, usuarios }
+export { perfis, usuarios, proximoId }

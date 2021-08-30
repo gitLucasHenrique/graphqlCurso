@@ -1,4 +1,4 @@
-class Usuario {
+class User {
     id: number
     nome: string
     email: string
@@ -6,17 +6,17 @@ class Usuario {
     salario?: number | null
     vip?: boolean | null
     perfil_id: number
-    status: UsuarioStatus
+    status: UserStatus
 }
 
-enum UsuarioStatus {
+enum UserStatus {
     ATIVO = 'ATIVO',
     INATIVO = 'INATIVO',
     BLOQUEADO = 'BLOQUEADO'
 }
 
-interface iUsuarioComSalario extends Usuario {
+interface iUserComSalario extends User {
     salario_real: number
 }
 
-export { Usuario, iUsuarioComSalario, UsuarioStatus }
+export { User, iUserComSalario, UserStatus }

@@ -1,5 +1,5 @@
 import { perfis, usuarios } from '../data/objs'
-import { Usuario, iUsuarioComSalario, UsuarioStatus } from "../class/usuario/usuario"
+import { User, iUserComSalario, UserStatus } from "../class/usuario/usuario"
 import Perfil from "../class/perfil/perfil"
 
 export =  {
@@ -15,7 +15,7 @@ export =  {
     horaDate(): Date {
         return new Date
     },
-    usuarioLogado(): iUsuarioComSalario {
+    usuarioLogado(): iUserComSalario {
         return {
             id: 1,
             nome: 'Lucas',
@@ -24,7 +24,7 @@ export =  {
             salario_real: 1234.12,
             vip: true,
             perfil_id: 1,
-            status: UsuarioStatus.ATIVO
+            status: UserStatus.ATIVO
         }
     },
     produtoEmDestaque(): Object {
@@ -44,14 +44,14 @@ export =  {
         }
         return finalArr.sort(crescente)
     },
-    usuarios(): Usuario[] {
+    usuarios(): User[] {
         return usuarios
     },
-    usuario(_: ParentNode, args: Usuario): Usuario {
+    usuario(_: ParentNode, args: User): User {
         const selected = usuarios.filter(u => u.id === args.id * 1)
         return selected ? selected[0] : null
     },
-    usuarioDes(_: ParentNode, { id }): Usuario {
+    usuarioDes(_: ParentNode, { id }): User {
         const selected = usuarios.filter(u => u.id === id * 1)
         return selected ? selected[0] : null
     },
