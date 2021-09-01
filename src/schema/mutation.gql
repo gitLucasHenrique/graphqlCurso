@@ -1,0 +1,5 @@
+type Mutation {
+  insertUser(userData: UserInput): User!
+  removeUser(filter: UserFilter!): User
+  updateUser(filter: UserFilter!, userData: UserInput!): User
+}

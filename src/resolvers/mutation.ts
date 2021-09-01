@@ -1,28 +1,30 @@
 import { User, UserStatus } from '../class/usuario/usuario'
 import { usuarios, proximoId } from '../data/objs'
 
-interface iNewUser {
-    nome: string,
-    email: string,
-    idade: number
+function indexUser(filter){
+    if(!filter) return -1
+    const { id, email } = filter
+    if(id) return usuarios.findIndex(u => u.id === id)
+    else if (email) return usuarios.findIndex(u => u.email === email)
+    return -1
 }
 
 interface iRemoveUser {
     id: number
 }
 
-interface iUpdateUser extends iRemoveUser, iNewUser { }
+interface iUpdateUser extends iRemoveUser { }
 
 export = {
-    insertUser(_: ParentNode, { nome, email, idade }: iNewUser) {
-        const checkEmail: boolean = usuarios.some(u => u.email === email)
+    insertUser(_: ParentNode, { userData }) {
+        const checkEmail: boolean = usuarios.some(u => u.email === userData.email)
         if (checkEmail) throw new Error('User already exists')
 
         const newUser: User = {
             id: proximoId(),
-            nome,
-            email,
-            idade,
+            nome: userData.nome,
+            email: userData.email,
+            idade: userData.idade,
             perfil_id: 1,
             status: UserStatus.ATIVO
         }
@@ -30,20 +32,20 @@ export = {
         usuarios.push(newUser)
         return newUser
     },
-    removeUser(_: ParentNode, { id }: iRemoveUser) {
-        const idxUser2remove = usuarios.findIndex(u => u.id === id)
+    removeUser(_: ParentNode, { filter }) {
+        const idxUser2remove = indexUser(filter)
         if (idxUser2remove < 0) return null
         const user2remove = usuarios.splice(idxUser2remove, 1)
         return user2remove ? user2remove[0] : null
     },
-    updateUser(_: ParentNode, args: iUpdateUser) {
-        const idxUser2update = usuarios.findIndex(u => u.id === args.id)
+    updateUser(_: ParentNode, { filter, userData }) {
+        const idxUser2update = indexUser(filter)
         if (idxUser2update < 0) return null
         const user2update = {
             ...usuarios[idxUser2update],
-            ...args
+            ...userData
         }
         usuarios.splice(idxUser2update, 1, user2update)
-        return user2update
+        return usuarios[idxUser2update]
     }
 }

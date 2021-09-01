@@ -1,0 +1,6 @@
+#import Usuario, Perfil from 'user.gql'
+#import Produto from 'produto.gql'
+#import Query from 'query.gql'
+#import Mutation from 'mutation.gql'
+
+scalar Date

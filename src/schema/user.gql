@@ -1,4 +1,4 @@
-type Usuario {
+type User {
   id: Int
   nome: String!
   email: String!
@@ -6,10 +6,10 @@ type Usuario {
   salario: Float
   vip: Boolean
   perfil: Perfil
-  status: UsuarioStatus
+  status: UserStatus
 }
 
-enum UsuarioStatus {
+enum UserStatus {
   ATIVO
   INATIVO
   BLOQUEADO
@@ -18,4 +18,15 @@ enum UsuarioStatus {
 type Perfil {
   id: Int
   nome: String!
+}
+
+input  UserInput {
+  nome: String
+  email: String
+  idade: Int
+}
+
+input UserFilter {
+  id: Int
+  email: String
 }

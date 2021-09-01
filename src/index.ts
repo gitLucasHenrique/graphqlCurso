@@ -4,13 +4,13 @@ import { importSchema } from 'graphql-import'
 import resolver from './resolvers'
 
 const log = new logger
-const schemaPath = './src/schema/index.graphql'
+const schemaPath = './src/schema/index.gql'
 
-log.say(__filename, 'everything is fine')
+log.say(__filename, '🔥️ everything is fine 🔥️')
 
 const server = new ApolloServer({
     typeDefs: importSchema(schemaPath),
-    resolvers: resolver
+    resolvers: resolver,
 })
 
 server.listen(8088).then(({ url }) => {

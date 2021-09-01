@@ -3,12 +3,12 @@ type Query {
   teste: String!
   horaCerta: String!
   horaDate: Date!
-  usuarioLogado: Usuario
+  usuarioLogado: User
   produtoEmDestaque: Produto
   numerosMegaSena: [Int!]!
-  usuarios: [Usuario]
-  usuario(id: Int): Usuario
-  usuarioDes(id: Int): Usuario
+  usuarios: [User]
+  usuario(id: Int): User
+  usuarioDes(id: Int): User
   perfis: [Perfil]
   perfil(id: Int): Perfil
 }

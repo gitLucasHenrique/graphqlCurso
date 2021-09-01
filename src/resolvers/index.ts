@@ -1,11 +1,11 @@
 import Query from './query'
 import Produto from './produto'
-import Usuario from './usuario'
+import User from './usuario'
 import Mutation from './mutation'
 
 export = {
     Query,
     Produto,
-    Usuario,
+    User,
     Mutation
 }

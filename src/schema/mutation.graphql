@@ -1,5 +1,0 @@
-type Mutation {
-  insertUser(nome: String, email: String, idade: Int): Usuario!
-  removeUser(id: Int!): Usuario
-  updateUser(id: Int!, nome: String!, email: String!, idade: Int): Usuario
-}
